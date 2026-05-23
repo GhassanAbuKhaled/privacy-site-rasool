@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use - Rasool</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/icon.png">
+    <style>
+        :root {
+            --bg-body: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-surface-solid: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --primary-color: #8b6a2f;
+            --primary-dark: #6e5325;
+            --primary-light: #fdf7e9;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            --radius-md: 6px;
+            --radius-lg: 12px;
+            --transition: all 0.25s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, .logo {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        ::selection {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+        }
+
+        /* Navbar */
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .logo-img {
+            width: 28px;
+            height: 28px;
+            border-radius: var(--radius-md);
+            object-fit: contain;
+        }
+
+        .logo span {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .header-nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            padding: 0.4rem 0.75rem;
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+        }
+
+        .header-nav a:hover {
+            color: var(--text-main);
+            background: var(--primary-light);
+        }
+
+        .header-nav a.current {
+            color: var(--primary-dark);
+            background: var(--primary-light);
+        }
+
+        /* Main Layout */
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-start;
+            padding: 4rem 2rem;
+            gap: 3rem;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            flex: 0 0 240px;
+            position: sticky;
+            top: 7rem;
+            background: transparent;
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .mobile-toggle-icon {
+            display: none;
+            color: var(--text-muted);
+            width: 14px;
+            height: 14px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            position: relative;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.25rem;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: var(--transition);
+            display: block;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-md);
+        }
+
+        .sidebar a:hover {
+            color: var(--text-main);
+            background: var(--bg-surface);
+        }
+
+        .sidebar a.active {
+            color: var(--primary-dark);
+            font-weight: 500;
+            background: var(--primary-light);
+        }
+
+        /* Content Area */
+        .content {
+            flex: 1;
+            background: var(--bg-surface-solid);
+            padding: 4rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .document-header {
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .document-header h1 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .document-header p.effective-date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            padding-top: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        ul.content-list {
+            list-style-type: none;
+            margin-left: 0;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        ul.content-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        ul.content-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        a.external-link {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        a.external-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary-color);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        a.external-link:hover {
+            color: var(--primary-color);
+        }
+
+        a.external-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .legal-notice {
+            background: linear-gradient(to right, rgba(250, 242, 224, 0.85), rgba(250, 242, 224, 0.15));
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            font-size: 1rem;
+            color: var(--text-main);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .legal-notice strong.notice-title {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Outfit', sans-serif;
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            background: var(--bg-surface);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            font-weight: 500;
+        }
+
+        footer a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            header {
+                padding: 1rem 1.25rem;
+            }
+
+            .header-nav {
+                font-size: 0.85rem;
+            }
+
+            .page-container {
+                display: block;
+                padding: 2rem 1rem;
+            }
+
+            .sidebar {
+                position: static;
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+
+            .sidebar-header {
+                background: var(--bg-surface-solid);
+                padding: 1.25rem 1.5rem;
+                margin-bottom: 0;
+                border-radius: var(--radius-md);
+                cursor: pointer;
+                border: 1px solid var(--border-color);
+                box-shadow: var(--shadow-sm);
+                transition: var(--transition);
+            }
+
+            .sidebar-header.open {
+                border-radius: var(--radius-md) var(--radius-md) 0 0;
+                border-bottom: none;
+            }
+
+            .sidebar h3 {
+                margin-bottom: 0;
+            }
+
+            .mobile-toggle-icon {
+                display: block;
+                transition: transform 0.3s ease;
+            }
+
+            .mobile-toggle-icon.open {
+                transform: rotate(180deg);
+            }
+
+            .sidebar ul {
+                display: none;
+                padding: 1rem;
+                background: var(--bg-surface-solid);
+                border: 1px solid var(--border-color);
+                border-top: none;
+                border-radius: 0 0 var(--radius-md) var(--radius-md);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .sidebar ul::before {
+                display: none;
+            }
+
+            .sidebar ul.show {
+                display: block;
+                animation: slideDown 0.3s ease-out;
+            }
+
+            @keyframes slideDown {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .content {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .document-header h1 {
+                font-size: 2.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img class="logo-img" src="/icon.png" alt="Rasool Icon">
+                Rasool<span> Terms</span>
+            </a>
+            <nav class="header-nav">
+                <a href="/privacy">Privacy</a>
+                <a href="/terms" class="current">Terms</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header" id="toc-header">
+                <h3>Table of Contents</h3>
+                <svg class="mobile-toggle-icon" id="toc-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 8 11 13 6"></polyline></svg>
+            </div>
+            <ul id="toc-list">
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#acceptance">2. Acceptance of Terms</a></li>
+                <li><a href="#subscriptions">3. Subscriptions & Free Trial</a></li>
+                <li><a href="#religious-content">4. Religious Content</a></li>
+                <li><a href="#restrictions">5. Usage Restrictions</a></li>
+                <li><a href="#termination">6. Account Termination</a></li>
+                <li><a href="#liability">7. Limitation of Liability</a></li>
+                <li><a href="#changes">8. Changes to these Terms</a></li>
+                <li><a href="#governing-law">9. Governing Law</a></li>
+                <li><a href="#contact">10. Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Document Content -->
+        <main class="content">
+            <div class="document-header">
+                <h1>Terms of Use</h1>
+                <p class="effective-date">Effective Date: May 23, 2026</p>
+            </div>
+
+            <section id="introduction">
+                <h2>1. Introduction</h2>
+                <p>Welcome to <strong>Rasool</strong> (the "Application"), an Islamic daily reminder application
+                    developed by Ghassan Abu Khaled (the "Service Provider"). These Terms of Use (the "Terms") govern
+                    your access to and use of the Application.</p>
+                <p>For details on how we collect, use, and protect your personal information, please review our <a
+                        class="external-link" href="/privacy">Privacy Policy</a>, which is incorporated into these
+                    Terms by reference.</p>
+            </section>
+
+            <section id="acceptance">
+                <h2>2. Acceptance of Terms</h2>
+                <p>By downloading, accessing, or using the Application, you agree to be bound by these Terms and our
+                    Privacy Policy. If you do not agree to these Terms, please refrain from using the Application.</p>
+                <p>You must be at least 18 years of age to use the Application. The onboarding flow does not allow
+                    users under 18 to proceed. By using the Application, you represent and warrant that you meet this
+                    age requirement.</p>
+            </section>
+
+            <section id="subscriptions">
+                <h2>3. Subscriptions and Free Trial</h2>
+                <p>Rasool offers certain features — including widgets, the streak tracker, reading history, and
+                    favorites — through a paid subscription. The Application includes a free trial period; after the
+                    trial ends, your subscription will begin at the price disclosed inside the Application.</p>
+                <p><strong>Subscription Terms:</strong> Payment will be charged to your Apple ID or Google Play
+                    account at the confirmation of purchase. Your subscription automatically renews at the same price
+                    and duration unless auto-renew is turned off at least 24 hours before the end of the current
+                    period. Your account will be charged for renewal within 24 hours prior to the end of the current
+                    period.</p>
+                <p><strong>Managing Subscriptions:</strong> You can manage and cancel your subscription by going to
+                    your Account Settings on the App Store or Google Play after purchase. Subscriptions are securely
+                    governed and processed through the official payment rails of your App Store and RevenueCat. By
+                    purchasing a subscription, you also agree to the standard <a class="external-link"
+                        href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank"
+                        rel="noopener">Apple Terms of Use (EULA)</a> and <a class="external-link"
+                        href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener">Google Play
+                        Terms of Service</a>.</p>
+                <p><strong>Restoring Purchases:</strong> If you reinstall the Application or switch devices, you may
+                    restore your subscription at any time using the <em>Restore Purchases</em> option on the paywall.
+                    To restore your reading history, favorites, and streak in addition to the subscription, you must
+                    sign in with the email or Apple ID associated with the original purchase.</p>
+                <p><strong>Refunds:</strong> Refunds are handled directly by Apple or Google according to their
+                    respective policies. The Service Provider does not directly process or issue refunds for
+                    subscriptions purchased through the App Store or Google Play.</p>
+            </section>
+
+            <section id="religious-content">
+                <h2>4. Religious Content</h2>
+                <div class="legal-notice">
+                    <strong class="notice-title">An Aid for Remembrance, Not a Substitute for Scholarship</strong>
+                    Rasool is intended as a daily aid for remembrance (dhikr) and reflection. The Application is not
+                    a source of religious rulings (fatwa) and does not replace consultation with qualified scholars.
+                    For matters of jurisprudence, ritual practice, or personal religious questions, please consult a
+                    trusted scholar or your local imam.
+                </div>
+                <p>The Application presents selections from the Qur'an, authentic hadith collections, and traditional
+                    duas and adhkar. The Arabic text of the Qur'an and the established collections of hadith are part
+                    of the shared heritage of the Muslim community and are not the property of the Service Provider.
+                    The Service Provider takes care to source content from established scholarly references and does
+                    not use any artificial intelligence to generate, translate, or paraphrase religious text.</p>
+                <p>Translations and transliterations are provided for the convenience of non-Arabic readers and are
+                    drawn from established published translations. If you notice a discrepancy or error in any
+                    content, please contact us so we can review and correct it.</p>
+            </section>
+
+            <section id="restrictions">
+                <h2>5. Usage Restrictions and Intellectual Property</h2>
+                <p>You agree not to copy, reverse-engineer, decompile, modify, distribute, sell, or lease any portion
+                    of the Application, its source code, or its included software frameworks. The Application's
+                    design, user interface, brand name, logo, content curation, and software are the exclusive
+                    property of the Service Provider. Sacred religious texts presented within the Application are
+                    not, and cannot be, the exclusive property of any individual or company.</p>
+                <p>You further agree not to use the Application to: (i) violate any applicable law or regulation; (ii)
+                    transmit any harmful, abusive, or unlawful content; (iii) interfere with or disrupt the
+                    Application's infrastructure or any associated third-party services; or (iv) attempt to gain
+                    unauthorized access to any portion of the Application or its underlying systems.</p>
+                <p><strong>Sharing:</strong> The Application allows you to share individual content cards as images.
+                    You are encouraged to share for the purpose of spreading reminders, provided the shared image is
+                    not modified to misrepresent the source text or the Service Provider.</p>
+            </section>
+
+            <section id="termination">
+                <h2>6. Account Termination</h2>
+                <p>We reserve the right to suspend or terminate your account and access to the Application at our
+                    sole discretion, without prior notice, for conduct that we believe violates these Terms or is
+                    harmful to other users of the Application, us, or third parties, or for any other reason.</p>
+                <p>You may terminate your account at any time by deleting it from within the Application (Settings
+                    &rarr; Delete Account) or by contacting us at <a class="external-link"
+                        href="mailto:privacy@rasool.app">privacy@rasool.app</a>. Details on data handling following
+                    termination are described in our <a class="external-link" href="/privacy#data-deletion">Privacy
+                        Policy</a>.</p>
+            </section>
+
+            <section id="liability">
+                <h2>7. Limitation of Liability</h2>
+                <p>The Application is provided on an "as is" and "as available" basis. While the Service Provider
+                    takes reasonable care to ensure the accuracy of the content presented, the Application is offered
+                    without warranty of any kind, either express or implied.</p>
+                <p>The Service Provider disclaims liability for damages or service interruptions arising from a lack
+                    of stable internet connectivity, third-party infrastructure outages (including Apple Push
+                    Notification service, Firebase Cloud Messaging, Supabase, RevenueCat, or PostHog), or
+                    unauthorized modifications made to your device's operating system (such as rooting or
+                    jailbreaking).</p>
+                <p>To the maximum extent permitted by applicable law, in no event shall the Service Provider be
+                    liable for any indirect, incidental, special, consequential, or punitive damages, including
+                    without limitation loss of profits, data, use, goodwill, or other intangible losses, resulting
+                    from your use of or inability to use the Application.</p>
+            </section>
+
+            <section id="changes">
+                <h2>8. Changes to these Terms</h2>
+                <p>We may update these Terms of Use from time to time. The "Effective Date" at the top reflects the
+                    latest revision. Material changes will be communicated via in-app notice or email prior to taking
+                    effect. Continued use of the Application after the effective date constitutes acceptance of the
+                    updated Terms.</p>
+            </section>
+
+            <section id="governing-law">
+                <h2>9. Governing Law</h2>
+                <p>These Terms are governed by the laws of Jordan, without regard to its conflict-of-laws principles.
+                    Any disputes arising out of or relating to these Terms or your use of the Application shall be
+                    resolved exclusively in the competent courts of Amman, Jordan.</p>
+                <p>If any provision of these Terms is found to be unenforceable or invalid under applicable law, such
+                    provision shall be modified to the minimum extent necessary to make it enforceable, and the
+                    remaining provisions shall continue in full force and effect.</p>
+            </section>
+
+            <section id="contact">
+                <h2>10. Contact Us</h2>
+                <p>For any formal inquiries or legal notices regarding these Terms of Use, please contact the Service
+                    Provider at the authorized email address below:</p>
+                <p><a class="external-link" href="mailto:privacy@rasool.app">privacy@rasool.app</a>
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Rasool &middot; <a href="/privacy">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // Highlight the active section in the sidebar as you scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.sidebar a');
+        const tocHeader = document.getElementById('toc-header');
+        const tocList = document.getElementById('toc-list');
+        const tocIcon = document.getElementById('toc-icon');
+
+        // Mobile accordion toggle
+        tocHeader.addEventListener('click', () => {
+            if (window.innerWidth <= 900) {
+                tocList.classList.toggle('show');
+                tocHeader.classList.toggle('open');
+                tocIcon.classList.toggle('open');
+            }
+        });
+
+        // Close TOC on mobile after clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 900) {
+                    tocList.classList.remove('show');
+                    tocHeader.classList.remove('open');
+                    tocIcon.classList.remove('open');
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 300) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // Highlight last item only if we hit the absolute bottom
+            if (Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 5) {
+                current = 'contact';
+            }
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href') || '';
+                if (current && href.includes('#' + current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
