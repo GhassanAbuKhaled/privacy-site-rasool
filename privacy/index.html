@@ -489,32 +489,39 @@
                 <ul class="content-list">
                     <li><strong>Anonymous Account Identifier:</strong> On first launch, the Application creates an
                         anonymous account through Supabase Auth. This account is identified by a randomly generated
-                        identifier and is not linked to any personal information until you choose to add an email or
-                        sign in with Apple.</li>
+                        identifier and is not linked to any personal information until you choose to add an email to
+                        save your account.</li>
                     <li><strong>Account & Authentication Data (Optional):</strong> If you choose to save your account
-                        for recovery, we collect your email address and a sign-in identifier from Apple (we do not
-                        receive or store your Apple password). Adding an email is optional and only required to restore
-                        your subscription, reading history, favorites, and streak after reinstalling or switching
-                        devices.</li>
+                        for recovery, we collect your email address and send you a one-time verification code. Adding
+                        an email is optional and only required to restore your subscription, reading history,
+                        favorites, and streak after reinstalling or switching devices.</li>
                     <li><strong>Preferences & Onboarding Answers:</strong> Your selected language, theme, age range
-                        (18+), preferred content categories (adhkar, duas, ayat, ahadith), spiritual themes (such as
-                        gratitude, patience, anxiety, guidance), notification frequency, and notification time window.
-                        These are used solely to personalize the content delivered to you.</li>
+                        (18+), preferred content categories (adhkar, duas, ayat, ahadith), the spiritual focus areas
+                        you select (such as gratitude, patience, hope, anxiety, sadness, health, relationships, or
+                        guidance), notification frequency, and notification time window. These are used solely to
+                        personalize the content delivered to you.</li>
                     <li><strong>Reading Activity:</strong> A log of the content cards you have viewed, the cards you
                         have marked as favorites, and your consecutive daily reading streak. This activity stays
                         associated with your account so it can be restored on a new device.</li>
-                    <li><strong>Notification Metadata:</strong> Push notification tokens issued by Apple Push
-                        Notification service or Firebase Cloud Messaging, and a server-side log of which content has
-                        been delivered to you. This log is used to prevent repeated content and is automatically purged
-                        after 90 days.</li>
+                    <li><strong>Notification Metadata:</strong> A push notification token issued by Expo's push
+                        notification service (which relays notifications to the Apple Push Notification service for
+                        delivery to your device), and a server-side log of which content has been delivered to you.
+                        This log is used to prevent repeated content and is automatically purged after 90 days.</li>
                     <li><strong>Subscription State:</strong> Whether your account is on a free trial or an active
                         subscription, the entitlement identifier, and renewal status. This information is provided to
-                        us by RevenueCat based on your Apple or Google purchase.</li>
-                    <li><strong>Product Analytics:</strong> Usage events such as screen views, onboarding progress,
-                        cards viewed, favoriting actions, and subscription milestones, alongside device type, operating
-                        system, app version, and locale. These analytics are collected through PostHog and hosted in
-                        the European Union (PostHog EU Cloud). Product analytics are processed on the basis of our
-                        legitimate interest in improving the Application; you may object at any time (see Section 5).
+                        us by RevenueCat based on your Apple App Store purchase.</li>
+                    <li><strong>Feedback You Submit:</strong> If you use the in-app feedback form, we collect the
+                        free-text message you write, along with your app version, platform, operating system version,
+                        and locale, so we can review and respond. Feedback is stored in our Supabase database and read
+                        by the Service Provider.</li>
+                    <li><strong>Product & Diagnostic Analytics:</strong> Usage events such as onboarding progress,
+                        cards viewed, favoriting actions, and subscription milestones, along with diagnostic and crash
+                        data (such as error reports), device type, operating system, app version, and locale. These
+                        analytics are collected through PostHog and hosted in the European Union (PostHog EU Cloud).
+                        Analytics are gated behind an in-app consent setting that you can turn off at any time, and are
+                        otherwise processed on the basis of our legitimate interest in improving the Application; you
+                        may object at any time (see Section 5). The identifier used for analytics is a random,
+                        app-generated value that is not linked to your email address.
                     </li>
                 </ul>
                 <p><strong>International Data Transfers:</strong> Your data is processed in the United States, the
@@ -522,10 +529,12 @@
                     on Standard Contractual Clauses for transfers out of the EEA/UK.</p>
                 <div class="legal-notice">
                     <strong>What We Do Not Collect</strong>
-                    Rasool does not collect location data, contacts, photos, health data, or any biometric
-                    information. The Application does not send your personal data to any AI or large language model
-                    provider — all religious content displayed is pre-published by the Service Provider and is not
-                    AI-generated.
+                    Rasool does not collect location data, contacts, photos, or any biometric or medical information.
+                    The spiritual focus areas you may choose during onboarding (such as anxiety, sadness, or health)
+                    are self-selected content preferences used only to personalize which reminders you see — they are
+                    not diagnoses, medical records, or health measurements. The Application does not send your personal
+                    data to any AI or large language model provider — all religious content displayed is pre-published
+                    by the Service Provider and is not AI-generated.
                 </div>
             </section>
 
@@ -539,12 +548,11 @@
                             rel="noopener">Supabase</a> (Authentication, Database, and Edge Functions)</li>
                     <li><a class="external-link" href="https://www.revenuecat.com/terms" target="_blank"
                             rel="noopener">RevenueCat</a> (In-App Subscriptions and Entitlement Management)</li>
+                    <li><a class="external-link" href="https://expo.dev/privacy" target="_blank"
+                            rel="noopener">Expo</a> (Push Notification Token Issuance and Delivery Relay, and App
+                        Build/Update Services)</li>
                     <li><a class="external-link" href="https://www.apple.com/legal/privacy/" target="_blank"
-                            rel="noopener">Apple</a> (Sign in with Apple, App Store Billing, Push Notifications via
-                        APNs)</li>
-                    <li><a class="external-link" href="https://policies.google.com/privacy" target="_blank"
-                            rel="noopener">Google</a> (Google Play Billing, Push Notifications via Firebase Cloud
-                        Messaging)</li>
+                            rel="noopener">Apple</a> (App Store Billing and Push Notification Delivery via APNs)</li>
                     <li><a class="external-link" href="https://posthog.com/privacy" target="_blank"
                             rel="noopener">PostHog</a> (Product Analytics, hosted in the European Union)</li>
                 </ul>
@@ -600,7 +608,7 @@
                 <p>We implement industry-standard security measures to protect your data. All data is encrypted in
                     transit using Transport Layer Security (TLS) and at rest using Supabase-managed AES-256
                     encryption. Sign-in identifiers and active session tokens are stored locally within your device's
-                    secure enclave (Keychain on iOS or Keystore on Android). Access to production data is restricted
+                    secure storage (the iOS Keychain). Access to production data is restricted
                     to the Service Provider and is logged for accountability.</p>
             </section>
 
